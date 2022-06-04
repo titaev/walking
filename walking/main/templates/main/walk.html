@@ -1,0 +1,9 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block content %}
+<h1>Прогулки {{city}}</h1>
+<!--<img src='{% static "/main/Анапа.jfif" %}' alt="прогулка">-->
+<img width="100px" src='/static/main/{{city}}.jfif' alt="прогулка">
+
+{% endblock %}
