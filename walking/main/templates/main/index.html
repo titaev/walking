@@ -1,0 +1,29 @@
+{% extends "main/base.html" %}
+{% block content %}
+
+<h1 class='main_head'>
+  LIST OF CITIES
+
+</h1>
+<h2 class='main_head'>
+    RUSSIA
+</h2>
+<table class="table table-responsive table-sm ">
+  <thead>
+    <tr>
+      <th scope="col">City</th>
+      <th scope="col">Quantity of walking</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for city in cities %}
+    <tr>
+      <td>  <a href="/walk/?city={{city}}">{{city}}</a> </td>
+      <td>1</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+
+{% endblock %}
