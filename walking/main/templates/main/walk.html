@@ -3,9 +3,12 @@
 {% block content %}
 <h1>
     Walking
-    {{city}}
-</h1>
-<img width="100px" src='/static/main/{{city}}.jpg' alt="walking">
 
+</h1>
+<!--<img width="100px" src='/static/main/{{city}}.jpg' alt="walking">-->
+<p>{{walk.description}}</p>
+<p> Distance {{walk.distance}}</p>
+
+<img src="{{walk.maps}}" alt="">
 
 {% endblock %}
