@@ -17,7 +17,7 @@ class Walk(models.Model):
 
 class WalkImage(models.Model):
     walk = models.ForeignKey(Walk, on_delete=models.CASCADE)
-    image = models.FileField(upload_to='uploads/')
+    image = models.FileField(upload_to='walks/')
 
 
 class Review(models.Model):

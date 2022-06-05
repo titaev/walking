@@ -1,6 +1,12 @@
 {% extends "main/base.html" %}
 {% load static %}
 {% block content %}
-<h1>Прогулки {{city}}</h1>
-<img src='/static/main/{{city}}.jpg' alt="Прогулка">
+<!--<h1>Прогулки {{city}}</h1>-->
+<!--<img src='/static/main/{{city}}.jpg' alt="Прогулка">-->
+<p>{{walk.description}}</p>
+<p>Расстояние прогулки{{walk.distance}}</p>
+<p>Расстояние прогулки{{walk.map}}</p>
+
+<img src="{{walk.map}}" alt="">
+
 {% endblock %}

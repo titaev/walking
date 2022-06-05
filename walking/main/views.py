@@ -2,12 +2,12 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from bs4 import BeautifulSoup
 import requests
-from .models import City
+from .models import City, Walk
 
 
 def index(request):
     result = City.objects.all()
-    result = [element.name for element in result]
+    # result = [element.name for element in result]
     # page = requests.get("https://xn----7sbiew6aadnema7p.xn--p1ai/alphabet.php", verify=False)
     # soup = BeautifulSoup(page.text, "html.parser")
     # result = soup.find("div", {"class": "common-text"}).find("ul").find_all("li")
@@ -16,8 +16,10 @@ def index(request):
 
 
 def walk(request):
-    city = request.GET.get('city')
-    return render(request, 'main/walk.html', {"city": city})
+    city_id = request.GET.get('city')
+    walk = Walk.objects.get(city=city_id)
+    print()
+    return render(request, 'main/walk.html', {"walk": walk})
 
 
 def about(request):
