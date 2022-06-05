@@ -11,12 +11,12 @@ class Walk(models.Model):
     city = models.ForeignKey(City, on_delete=models.CASCADE)
     distance = models.FloatField()
     description = models.TextField()
-    map = models.FileField(upload_to='maps/')
+    map = models.FileField(upload_to='media/maps/')
 
 
 class WalkImage(models.Model):
     walk = models.ForeignKey(Walk, on_delete=models.CASCADE)
-    image = models.FileField(upload_to='walks/')
+    image = models.FileField(upload_to='media/walks/')
 
 
 class Review(models.Model):
