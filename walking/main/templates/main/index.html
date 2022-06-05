@@ -18,7 +18,7 @@
   <tbody>
   {% for city in cities%}
     <tr>
-      <th><a href="/walk/?city={{city}}">{{city}}</a></th>
+      <th><a href="/walk/?city={{city.id}}">{{city.name}}</a></th>
       <td>1</td>
     </tr>
   {% endfor %}

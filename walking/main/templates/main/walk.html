@@ -5,7 +5,9 @@
 
 
 <h1>   Прогулки
-    <p>{{city}}</p>
+    <p>{{walk.description}}</p>
+    <p>Расстояние прогулки {{walk.distance}}</p>
 </h1>
-<img width="1001px" src="/static/main/{{city}}.jpg" alt='прогулка'>
+<img width="1001px" src="/static/main/{{id}}.jpg" alt='прогулка'>
+<img src="{{walk.maps}}">
 {% endblock %}
