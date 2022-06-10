@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.contrib import auth
 from django.http import HttpResponseRedirect
+from django.contrib.auth import logout
 
 from .forms import UserRegistrationForm
 
@@ -25,10 +26,7 @@ def login(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
-        print(username)
-        print(password)
         user = auth.authenticate(username=username, password=password)
-        print(user)
         if user is not None and user.is_active:
             # Правильный пароль и пользователь "активен"
             auth.login(request, user)
@@ -41,3 +39,8 @@ def login(request):
     else:
 
         return render(request, 'accounts/login.html', {})
+
+
+def logout_view(request):
+    logout(request)
+    return HttpResponseRedirect("/")
