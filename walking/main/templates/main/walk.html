@@ -3,11 +3,25 @@
 
 {% block content %}
 
+<!--<center>-->
+<!--<h1>   Прогулки   </h1>-->
+    <!--<h2>{{walk.name}}</h2>-->
+    <!--<p>{{walk.description}}</p>-->
+    <!--<p>Расстояние прогулки {{walk.distance}}</p>-->
 
-<h1>   Прогулки
-    <p>{{walk.description}}</p>
-    <p>Расстояние прогулки {{walk.distance}}</p>
-</h1>
-<img width="1001px" src="/static/main/{{id}}.jpg" alt='прогулка'>
-<img src="{{walk.maps}}">
+
+<!--<img src="{{walk.map.url}}" width = 30%>-->
+<!--</center>-->
+
+<center>
+ <div cl<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="{{walk.map.url}}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{walk.name}}</h5>
+    <p class="card-text">{{walk.description}}</p>
+      <p>Расстояние прогулки {{walk.distance}}</p>
+  </div>
+</div>
+    </center>
+
 {% endblock %}

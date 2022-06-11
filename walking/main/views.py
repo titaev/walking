@@ -14,7 +14,7 @@ def index(request):
 
 def walk(request):
     city_id = request.GET.get('city')
-    walk = Walk.objects.get(id=city_id)
+    walk = Walk.objects.get(city=city_id)
     return render(request, 'main/walk.html', {"walk": walk})
 
 
