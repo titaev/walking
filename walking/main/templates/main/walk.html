@@ -1,14 +1,27 @@
 {% extends "main/base.html" %}
 {% load static %}
 {% block content %}
-<h1>
-    Walking
+<!--<center>-->
+<!--<h1>Walking</h1>-->
+<!--    <h2>{{walk.name}}</h2>-->
+<!--&lt;!&ndash;<img width="100px" src='/static/main/{{city}}.jpg' alt="walking">&ndash;&gt;-->
+<!--<p>{{walk.description}}</p>-->
+<!--<p> Distance {{walk.distance}}</p>-->
 
-</h1>
-<!--<img width="100px" src='/static/main/{{city}}.jpg' alt="walking">-->
-<p>{{walk.description}}</p>
-<p> Distance {{walk.distance}}</p>
-
-<img src="{{walk.maps}}" alt="">
+<!--<img src="{{walk.map.url}}" alt="" width="80%"  >-->
+<!--</center>-->
+<center>
+<div class="card" style="width: 80%;">
+  <img class="card-img-top" src="{{walk.map.url}}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{walk.name}}</h5>
+    <p class="card-text">{{walk.description}}</p>
+  </div>
+    <u1
+        class='list-group list-group-flush'>
+        <li class="list-group-item">Distance {{walk.distance}}</li>
+    </u1>
+</div>
+    </center>
 
 {% endblock %}
