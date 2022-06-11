@@ -3,10 +3,19 @@
 {% block content %}
 <!--<h1>Прогулки {{city}}</h1>-->
 <!--<img src='/static/main/{{city}}.jpg' alt="Прогулка">-->
-<p>{{walk.description}}</p>
-<p>Расстояние прогулки{{walk.distance}}</p>
-<p>Расстояние прогулки{{walk.map}}</p>
+<center>
+    <h1>Прогулки</h1>
 
-<img src="{{walk.map}}" alt="">
+
+<div class="card" style="width: 36rem;">
+  <img class="card-img-top" src="{{walk.map.url}}" width="500" height="400" alt="" align="right"
+  vspace="5" hspace="5">
+  <div class="card-body">
+    <h5 class="card-title">{{walk.name}}</h5>
+    <p class="card-text">{{walk.description}}</p>
+    <p class="list-group-item">Расстояние прогулки: {{walk.distance}}</p>
+</div>
+
+    </center>
 
 {% endblock %}
