@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .forms import UserRegistrationForm
 from django.http import  HttpResponseRedirect
 from django.contrib import auth
-
+from django.contrib.auth.models import User
 # Create your views here.
 
 def register(request):
@@ -37,4 +37,10 @@ def login(request):
 
 def logout_view(request):
     auth.logout(request)
+    return HttpResponseRedirect('/')
+
+def delete_user(request):
+    user = User.object.get(id=request.user.id)
+    user.delete()
+
     return HttpResponseRedirect('/')
