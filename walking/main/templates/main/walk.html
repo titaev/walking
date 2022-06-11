@@ -2,13 +2,25 @@
 {% load static %}
 
 {% block content %}
-<h1>Прогулки</h1>
-<!--<img src='{% static "/main/Анапа.jfif" %}' alt="прогулка">-->
-<!--<img width="100px" src='/static/main/{{city}}.jfif' alt="прогулка">-->
-<p>{{walk.description}}</p>
-<p>Расстояние прогулки {{walk.distance}}</p>
+<center>
+<!--    <h1>Прогулки</h1>-->
+<!--    <h2>{{walk.name}}</h2>-->
+<!--    <p>{{walk.description}}</p>-->
+<!--    <p>Расстояние прогулки {{walk.distance}}</p>-->
+<!--    <img src="{{walk.map.url}}" alt="" width="600px">-->
 
-<img src="{{walk.map.url}}" alt="">
 
+<div class="card" style="width: 40rem;">
+  <img class="card-img-top" src="{{walk.map.url}}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{walk.name}}</h5>
+    <p class="card-text">{{walk.description}}</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Расстояние прогулки {{walk.distance}}</li>
+  </ul>
+</div>
 
+</center>
 {% endblock %}
+
