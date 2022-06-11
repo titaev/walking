@@ -11,7 +11,7 @@ def index(request):
 
 
 def walk(request):
-    city = request.GET.get('city')
+    city_id = request.GET.get('city')
     walk = Walk.objects.get(city=city_id)
     # здесь делаем запрос в базу
     return render(request, 'main/walk.html', {"walk": walk})
