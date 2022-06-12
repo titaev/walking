@@ -1,7 +1,8 @@
 from django.test import TestCase, Client
+from .models import City
 
 
-class SimpleTest(TestCase):
+class ViewTest(TestCase):
     def setUp(self):
         # Every test needs a client.
         self.client = Client()
@@ -15,3 +16,16 @@ class SimpleTest(TestCase):
 
         # Check that the rendered context contains 5 customers.
         # self.assertEqual(len(response.context['customers']), 5)
+
+class BDTest(TestCase):
+    def setUp(self):
+        City.objects.create(name="Москва")
+        City.objects.create(name="Санкт-Петербург")
+
+    def test_city(self):
+        cities = City.objects.all()
+        self.assertEqual(len(cities), 2)
+
+
+
+
