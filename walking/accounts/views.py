@@ -40,7 +40,7 @@ def logout_view(request):
     return HttpResponseRedirect('/')
 
 def delete_user(request):
-    user = User.object.get(id=request.user.id)
+    user = User.objects.get(id=request.user.id)
     user.delete()
-
     return HttpResponseRedirect('/')
+
