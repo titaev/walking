@@ -13,5 +13,6 @@ from . import views
 urlpatterns = [
     path('', views.index, name='index'),
     path('walk/', views.walk, name='walk'),
-    path('information/', views.information, name='info')
+    path('information/', views.information, name='info'),
+    path('walk/rating/<int:walk_id>', views.rating, name='walk_rating'),
 ]

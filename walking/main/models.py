@@ -2,6 +2,8 @@ from django.db import models
 
 from django.core.validators import MaxValueValidator
 from django.core.validators import MinValueValidator
+from django.contrib.auth.models import User
+from django.core.validators import MaxValueValidator, MinValueValidator
 # Create your models here.
 
 class City(models.Model):
@@ -24,11 +26,13 @@ class Walk(models.Model):
 
 
 class Rewiew(models.Model):
+    user = models.ForeignKey(User, on_delete=models.SET_NULL,null=True)
     walk = models.ForeignKey(Walk, on_delete=models.CASCADE)
-    rating = models.IntegerField(default=0, validators=[MaxValueValidator(5), MinValueValidator(0)], blank=True)
+    rating = models.IntegerField(validators=[MinValueValidator(1),MaxValueValidator(5)])
     description = models.TextField(blank=True)
 
 
 class WalkImage(models.Model):
     walk = models.ForeignKey(Walk, on_delete=models.CASCADE)
     image = models.FileField(upload_to='walks/')
+
