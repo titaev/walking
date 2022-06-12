@@ -1,6 +1,6 @@
 from django.db import models
-
-# Create your models here.
+from django.contrib.auth.models import User
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 
 class City(models.Model):
@@ -28,6 +28,7 @@ class WalkImage(models.Model):
 
 
 class Review(models.Model):
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     walk = models.ForeignKey(Walk, on_delete=models.CASCADE)
-    rating = models.IntegerField(blank=True)
+    rating = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])
     description = models.TextField(blank=True)
