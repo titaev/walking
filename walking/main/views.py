@@ -30,15 +30,17 @@ def walk(request):
 def rating(request, walk_id):
     if request.method == "POST":
         data = ReviewForm(request.POST)
+        walk = Walk.objects.get(id=walk_id)
+        city_id = walk.city_id
         if data.is_valid():
-            user = User.objects.get(id=request.user.id)
-            walk = Walk.objects.get(id=walk_id)
-            Review.objects.create(user=user,
-                                  walk=walk,
+            # user = User.objects.get(id=request.user.id)
+            # walk = Walk.objects.get(id=walk_id)
+            Review.objects.create(user_id=request.user.id,
+                                  walk_id=walk.id,
                                   rating=data.cleaned_data['rating'],
                                   description=data.cleaned_data['description']
                                   )
-            return HttpResponseRedirect('/')
+            return HttpResponseRedirect(f'/walk/?city={city_id}')
 
 
 def about_site(request):
