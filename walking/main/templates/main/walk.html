@@ -1,0 +1,51 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block content %}
+<center>
+  <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form action="/walk/rating/{{walk.info.id}}" method="POST">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Отзыв</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+            {{review_form.as_p}}
+            {% csrf_token %}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+        <input type="submit" value="Оценить">
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+  <!-- END Modal -->
+
+
+<div class="card" style="width: 40rem;">
+  <img class="card-img-top" src="{{walk.info.map.url}}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{walk.info.name}}</h5>
+    <p class="card-text">{{walk.info.description}}</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Расстояние прогулки {{walk.info.distance}}</li>
+    <li class="list-group-item">Рейтинг {{walk.rating}}
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+          Оценить
+      </button>
+    </li>
+  </ul>
+</div>
+
+</center>
+{% endblock %}
+
+

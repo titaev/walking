@@ -1,0 +1,23 @@
+{% extends "main/base.html" %}
+{% block content %}
+
+<h1 class="main_header_cities">Список городов</h1>
+
+<table class="table table-responsive">
+  <thead>
+    <tr>
+      <th scope="col">Город</th>
+      <th scope="col">Количество маршрутов</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for city in cities %}
+    <tr>
+      <td><a href="/walk/?city={{city.id}}">{{city.name}}</a></td>
+      <td>1</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}
