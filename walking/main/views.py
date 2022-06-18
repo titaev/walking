@@ -4,7 +4,7 @@ import requests
 from .models import City, Walk, Review
 from .services import get_average_rating
 from .forms import ReviewForm
-from django.Http import HttpResponseRedirect
+from django.http import HttpResponseRedirect
 
 
 def index(request):
