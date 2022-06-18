@@ -34,6 +34,8 @@ def walk(request):
 def rating(request, walk_id):
     if request.method =='POST':
         data = RewiewForm(request.POST)
+        walk=Walk.objects.get(id=walk_id)
+        city_id= walk.city_id
         if data.is_valid():
             user = User.objects.get(id=request.user.id)
             walk = Walk.objects.get(id=walk_id)
@@ -43,7 +45,7 @@ def rating(request, walk_id):
                                   rating=data.cleaned_data['rating'],
                                   description=data.cleaned_data['description']
                                   )
-            return HttpResponseRedirect('/')
+            return HttpResponseRedirect(request.path_info)
 
 
 def information(request):
