@@ -7,4 +7,3 @@ def get_avg_rating(walk_id):
     return round(rate, 1)
 
 
-
